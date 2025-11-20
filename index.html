@@ -3,141 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>6. Sınıf Türkçe Sunumları</title>
+    <title>6. Sınıf Türkçe Platformu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2980b9;
-            --accent-color: #34495e;
-            --bg-color: #f0f2f5;
-            --text-color: #333;
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-dark: #2d3436;
+            --text-light: #636e72;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-gradient);
             margin: 0;
             padding: 0;
-            color: var(--text-color);
+            min-height: 100vh;
+            color: var(--text-dark);
         }
 
+        /* Header Tasarımı */
         header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 30px;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 40px 20px;
+            color: white;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
-        h1 { margin: 0; font-size: 2.5rem; }
-        p { font-size: 1.2rem; margin-top: 10px; }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            font-weight: 700;
+        }
 
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        /* Grid Yapısı */
         .container {
             max-width: 1200px;
-            margin: 40px auto;
+            margin: 0 auto 50px auto;
             padding: 20px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
         }
 
+        /* Kart Tasarımı */
         .card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            border-top: 5px solid var(--primary-color);
-        }
-
-        .card:hover { transform: translateY(-5px); }
-
-        .card-header {
-            background-color: #ecf0f1;
-            color: var(--accent-color);
-            padding: 15px;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .card-body {
+            background: var(--card-bg);
+            border-radius: 20px;
             padding: 25px;
-            flex-grow: 1;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            align-items: center;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .card-title {
-            font-size: 1.5rem;
-            font-weight: bold;
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+        }
+
+        .card-icon {
+            font-size: 3.5rem;
             margin-bottom: 15px;
-            color: var(--primary-color);
+            background: #f0f3ff;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
         }
 
-        .card-desc { font-size: 1rem; color: #555; margin-bottom: 25px; }
+        .card h3 {
+            margin: 10px 0;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+        }
 
-        /* BUTON GÖRÜNÜMLÜ LİNK TASARIMI */
-        .open-btn {
-            display: block;
-            width: 100%; /* Kartın genişliğini kaplasın */
-            background-color: var(--primary-color);
+        .card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        /* Buton Tasarımı */
+        .btn {
+            margin-top: auto; /* Butonu en alta iter */
+            background: var(--primary);
             color: white;
-            padding: 15px 0;
+            text-decoration: none;
+            padding: 12px 30px;
             border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-decoration: none; /* Link alt çizgisini kaldırır */
-            text-align: center; /* Yazıyı ortalar */
-            transition: background 0.3s;
-            box-sizing: border-box;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: background 0.3s ease, transform 0.2s ease;
+            width: 80%;
         }
 
-        .open-btn:hover { background-color: var(--accent-color); }
+        .btn:hover {
+            background: #5649c0;
+            transform: scale(1.05);
+        }
+
     </style>
 </head>
 <body>
 
 <header>
-    <h1>6. Sınıf Türkçe Sunumları</h1>
-    <p>Ders Materyalleri</p>
+    <h1>📚 6. Sınıf Türkçe</h1>
+    <p>İnteraktif Ders Materyalleri</p>
 </header>
 
-<div class="container">
+<div class="container" id="kart-alani"></div>
+
+<script>
+    // ============================================================
+    // AYARLAR BÖLÜMÜ - SADECE BURAYI DEĞİŞTİRECEKSİN
+    // ============================================================
     
-    <div class="card">
-        <div class="card-header">Okuma / Anlama</div>
-        <div class="card-body">
-            <div class="card-title">Söz Sanatları</div>
-            <div class="card-desc">Benzetme, Kişileştirme ve Konuşturma.</div>
-            
-            <a href="https://www.canva.com/design/..." target="_blank" class="open-btn">SUNUMU AÇ</a>
-        </div>
-    </div>
+    const dersListesi = [
+        {
+            baslik: "Söz Sanatları",
+            aciklama: "Benzetme, kişileştirme ve konuşturma sanatları üzerine interaktif sunum.",
+            ikon: "🎨",
+            link: "https://www.canva.com/design/LINK_1"
+        },
+        {
+            baslik: "Hikaye ve Masal",
+            aciklama: "Metin türlerinin karşılaştırılması ve örnek incelemeler.",
+            ikon: "🏰",
+            link: "https://www.canva.com/design/LINK_2"
+        },
+        {
+            baslik: "İsim Tamlamaları",
+            aciklama: "Belirtili, belirtisiz ve zincirleme tamlamalar.",
+            ikon: "🔗",
+            link: "https://www.canva.com/design/LINK_3"
+        },
+        {
+            baslik: "Noktalama İşaretleri",
+            aciklama: "Virgül ve noktalı virgülün kullanım alanları.",
+            ikon: "✍️",
+            link: "https://www.canva.com/design/LINK_4"
+        },
+        // Yeni bir ders eklemek için yukarıdaki süslü parantezli bloğu kopyalayıp buraya yapıştırabilirsin.
+    ];
 
-    <div class="card">
-        <div class="card-header">Metin Türleri</div>
-        <div class="card-body">
-            <div class="card-title">Hikaye ve Masal</div>
-            <div class="card-desc">Hikaye unsurları ve masal özellikleri.</div>
-            
-            <a href="https://www.canva.com/design/..." target="_blank" class="open-btn">SUNUMU AÇ</a>
-        </div>
-    </div>
+    // ============================================================
+    // SİSTEM KODLARI (BURAYA DOKUNMANA GEREK YOK)
+    // ============================================================
 
-    <div class="card">
-        <div class="card-header">Dil Bilgisi</div>
-        <div class="card-body">
-            <div class="card-title">İsim Tamlamaları</div>
-            <div class="card-desc">Belirtili, belirtisiz ve zincirleme tamlamalar.</div>
-            
-            <a href="https://www.canva.com/design/DAG4-mdLaZs/FQpjZu62atB6z4By8oMIbQ/edit?utm_content=DAG4-mdLaZs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" class="open-btn">SUNUMU AÇ</a>
-        </div>
-    </div>
+    const kartAlani = document.getElementById('kart-alani');
 
-</div>
+    dersListesi.forEach(ders => {
+        // HTML Kartını Oluştur
+        const html = `
+            <div class="card">
+                <div class="card-icon">${ders.ikon}</div>
+                <h3>${ders.baslik}</h3>
+                <p>${ders.aciklama}</p>
+                <a href="${ders.link}" target="_blank" class="btn">Sunumu Aç</a>
+            </div>
+        `;
+        // Sayfaya Ekle
+        kartAlani.innerHTML += html;
+    });
+
+</script>
 
 </body>
 </html>
