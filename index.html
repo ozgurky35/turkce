@@ -79,55 +79,23 @@
 
         .card-desc { font-size: 1rem; color: #555; margin-bottom: 25px; }
 
-        /* BUTON DÜZELTMESİ: Artık <button> kullanıyoruz */
+        /* BUTON GÖRÜNÜMLÜ LİNK TASARIMI */
         .open-btn {
             display: block;
-            width: 100%;
+            width: 100%; /* Kartın genişliğini kaplasın */
             background-color: var(--primary-color);
             color: white;
             padding: 15px 0;
-            border: none; /* Çerçeve yok */
             border-radius: 50px;
             font-size: 1.2rem;
             font-weight: bold;
-            cursor: pointer; /* Tıklanabilir el işareti */
+            text-decoration: none; /* Link alt çizgisini kaldırır */
+            text-align: center; /* Yazıyı ortalar */
             transition: background 0.3s;
+            box-sizing: border-box;
         }
 
         .open-btn:hover { background-color: var(--accent-color); }
-
-        /* Modal Penceresi */
-        #presentationModal {
-            display: none; /* Başlangıçta gizli */
-            position: fixed;
-            z-index: 9999; /* En üstte olması garanti */
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.9);
-        }
-
-        .modal-content {
-            position: relative;
-            margin: 2vh auto; /* Dikey ortalama */
-            width: 90%;
-            height: 90%;
-            background: white;
-            border-radius: 8px;
-        }
-
-        .close {
-            position: absolute;
-            right: -40px; /* Çarpı işaretini kutunun dışına aldım */
-            top: 0;
-            color: white;
-            font-size: 50px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        
-        iframe { width: 100%; height: 100%; border: none; }
     </style>
 </head>
 <body>
@@ -145,7 +113,7 @@
             <div class="card-title">Söz Sanatları</div>
             <div class="card-desc">Benzetme, Kişileştirme ve Konuşturma.</div>
             
-            <button class="open-btn" onclick="openModal('https://www.canva.com/design/DAFxxxx/view?embed')">SUNUMU AÇ</button>
+            <a href="https://www.canva.com/design/..." target="_blank" class="open-btn">SUNUMU AÇ</a>
         </div>
     </div>
 
@@ -155,7 +123,7 @@
             <div class="card-title">Hikaye ve Masal</div>
             <div class="card-desc">Hikaye unsurları ve masal özellikleri.</div>
             
-            <button class="open-btn" onclick="openModal('https://www.canva.com/design/DAFxxxx/view?embed')">SUNUMU AÇ</button>
+            <a href="https://www.canva.com/design/..." target="_blank" class="open-btn">SUNUMU AÇ</a>
         </div>
     </div>
 
@@ -165,45 +133,11 @@
             <div class="card-title">İsim Tamlamaları</div>
             <div class="card-desc">Belirtili, belirtisiz ve zincirleme tamlamalar.</div>
             
-            <button class="open-btn" onclick="openModal('https://www.canva.com/design/DAG4-mdLaZs/Ov3SDfKezLQrdKEmg5gJpg/view')">SUNUMU AÇ</button>
+            <a href="https://www.canva.com/design/DAG4-mdLaZs/FQpjZu62atB6z4By8oMIbQ/edit?utm_content=DAG4-mdLaZs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" class="open-btn">SUNUMU AÇ</a>
         </div>
     </div>
 
 </div>
 
-<div id="presentationModal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <iframe id="modalFrame" src=""></iframe>
-    </div>
-</div>
-
-<script>
-    function openModal(url) {
-        // Eğer link değiştirilmediyse uyarı ver
-        if(url.includes('DAFxxxx')) {
-            alert("Lütfen koddaki Canva linkini kendi sunum linkinizle değiştirin!");
-            return;
-        }
-        document.getElementById('presentationModal').style.display = "block";
-        document.getElementById('modalFrame').src = url;
-    }
-
-    function closeModal() {
-        document.getElementById('presentationModal').style.display = "none";
-        document.getElementById('modalFrame').src = "";
-    }
-    
-    // Sayfa dışına tıklayınca da kapansın
-    window.onclick = function(event) {
-        var modal = document.getElementById('presentationModal');
-        if (event.target == modal) {
-            closeModal();
-        }
-    }
-</script>
-
 </body>
 </html>
-
-
