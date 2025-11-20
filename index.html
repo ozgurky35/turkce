@@ -7,191 +7,182 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #6c5ce7;
-            --secondary: #a29bfe;
-            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --card-bg: rgba(255, 255, 255, 0.95);
-            --text-dark: #2d3436;
-            --text-light: #636e72;
+            --primary: #4834d4;
+            --secondary: #686de0;
+            --bg-color: #f5f6fa;
+            --text-dark: #2f3542;
+            --card-bg: #ffffff;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: var(--bg-gradient);
+            background-color: var(--bg-color);
             margin: 0;
             padding: 0;
-            min-height: 100vh;
             color: var(--text-dark);
         }
 
-        /* Header Tasarımı */
         header {
-            text-align: center;
-            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            text-align: center;
+            padding: 50px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        header h1 {
-            font-size: 3rem;
-            margin: 0;
-            font-weight: 700;
-        }
+        header h1 { margin: 0; font-size: 2.5rem; }
+        header p { opacity: 0.9; font-size: 1.1rem; margin-top: 10px; }
 
-        header p {
-            font-size: 1.2rem;
-            margin-top: 10px;
-            opacity: 0.9;
-        }
-
-        /* Grid Yapısı */
-        .container {
+        /* Ana İçerik Alanı */
+        .main-content {
             max-width: 1200px;
-            margin: 0 auto 50px auto;
-            padding: 20px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Kategori Başlığı */
+        .kategori-baslik {
+            font-size: 1.8rem;
+            color: var(--primary);
+            border-left: 5px solid var(--secondary);
+            padding-left: 15px;
+            margin: 40px 0 20px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Izgara (Grid) Yapısı */
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
         }
 
         /* Kart Tasarımı */
         .card {
             background: var(--card-bg);
-            border-radius: 20px;
+            border-radius: 15px;
             padding: 25px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 8px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            align-items: flex-start;
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-color: var(--secondary);
         }
 
         .card-icon {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             margin-bottom: 15px;
-            background: #f0f3ff;
-            width: 80px;
-            height: 80px;
-            line-height: 80px;
-            border-radius: 50%;
+            background: #eef1ff;
+            padding: 10px;
+            border-radius: 12px;
         }
 
-        .card h3 {
-            margin: 10px 0;
-            font-size: 1.5rem;
-            color: var(--text-dark);
-        }
+        .card h3 { margin: 0 0 10px 0; font-size: 1.3rem; color: var(--text-dark); }
+        .card p { margin: 0 0 20px 0; font-size: 0.9rem; color: #747d8c; line-height: 1.5; }
 
-        .card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            margin-bottom: 25px;
-            line-height: 1.5;
-        }
-
-        /* Buton Tasarımı */
         .btn {
-            margin-top: auto; /* Butonu en alta iter */
+            margin-top: auto;
+            width: 100%;
+            text-align: center;
             background: var(--primary);
             color: white;
             text-decoration: none;
-            padding: 12px 30px;
-            border-radius: 50px;
+            padding: 12px 0;
+            border-radius: 8px;
             font-weight: 600;
-            letter-spacing: 0.5px;
-            transition: background 0.3s ease, transform 0.2s ease;
-            width: 80%;
+            transition: background 0.2s;
+            box-sizing: border-box; /* Taamayı önler */
         }
 
-        .btn:hover {
-            background: #5649c0;
-            transform: scale(1.05);
-        }
+        .btn:hover { background: var(--secondary); }
 
     </style>
 </head>
 <body>
 
 <header>
-    <h1>📚 6. Sınıf Türkçe</h1>
-    <p>İnteraktif Ders Materyalleri</p>
+    <h1>6. Sınıf Türkçe</h1>
+    <p>Konularına Göre Ayrılmış Ders Materyalleri</p>
 </header>
 
-<div class="container" id="kart-alani"></div>
+<div class="main-content" id="icerik-kutusu">
+    </div>
 
 <script>
     // ============================================================
-    // AYARLAR BÖLÜMÜ - SADECE BURAYI DEĞİŞTİRECEKSİN
+    //  YÖNETİM PANELİ (Burayı Düzenleyeceksin)
     // ============================================================
     
-    const dersListesi = [
+    const dersProgrami = [
+        
+        // --- 1. KATEGORİ: Bağımsızlık Yolu ---
         {
-            baslik: "Büyük Taarruz",
-            aciklama: "Metin sunumu",
-            ikon: "🎨",
-            link: "https://www.canva.com/design/DAG4-mdLaZs/FQpjZu62atB6z4By8oMIbQ/edit?utm_content=DAG4-mdLaZs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+            kategoriAdi: "Bağımsızlık Yolu",
+            materyaller: [
+                {
+                    baslik: "Büyük Taarruz",
+                    aciklama: "Metin Sunumu",
+                    ikon: "📘",
+                    link: "https://www.canva.com/design/DAG4-mdLaZs/FQpjZu62atB6z4By8oMIbQ/edit?utm_content=DAG4-mdLaZs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" 
+                },
+                {
+                    baslik: "Sıfatlar",
+                    aciklama: "Niteleme ve belirtme sıfatları.",
+                    ikon: "🏷️",
+                    link: "https://www.canva.com/..." 
+                }
+            ]
         },
+
+        // --- 2. KATEGORİ: OKUMA & ANLAMA ---
         {
-            baslik: "Hikaye ve Masal",
-            aciklama: "Metin türlerinin karşılaştırılması ve örnek incelemeler.",
-            ikon: "🏰",
-            link: "https://www.canva.com/design/LINK_2"
+            kategoriAdi: "Okuma ve Anlama",
+            materyaller: [
+                {
+                    baslik: "Söz Sanatları",
+                    aciklama: "Kişileştirme, benzetme ve abartma.",
+                    ikon: "🎨",
+                    link: "https://www.canva.com/..." 
+                },
+                {
+                    baslik: "Paragraf Bilgisi",
+                    aciklama: "Ana düşünceyi bulma yöntemleri.",
+                    ikon: "🧠",
+                    link: "https://www.canva.com/..." 
+                }
+            ]
         },
+
+        // --- 3. KATEGORİ: YAZIM VE NOKTALAMA ---
         {
-            baslik: "İsim Tamlamaları",
-            aciklama: "Belirtili, belirtisiz ve zincirleme tamlamalar.",
-            ikon: "🔗",
-            link: "https://www.canva.com/design/LINK_3"
-        },
-        {
-            baslik: "Noktalama İşaretleri",
-            aciklama: "Virgül ve noktalı virgülün kullanım alanları.",
-            ikon: "✍️",
-            link: "https://www.canva.com/design/LINK_4"
-        },
-        // Yeni bir ders eklemek için yukarıdaki süslü parantezli bloğu kopyalayıp buraya yapıştırabilirsin.
+            kategoriAdi: "Yazım ve Noktalama",
+            materyaller: [
+                {
+                    baslik: "Virgülün Kullanımı",
+                    aciklama: "Sıralı cümleler ve eş görevli sözcükler.",
+                    ikon: "✍️",
+                    link: "https://www.canva.com/..." 
+                }
+            ]
+        }
     ];
 
     // ============================================================
-    // SİSTEM KODLARI (BURAYA DOKUNMANA GEREK YOK)
+    //  SİSTEM KODLARI (Dokunma)
     // ============================================================
 
-    const kartAlani = document.getElementById('kart-alani');
+    const kutu = document.getElementById('icerik-kutusu');
 
-    dersListesi.forEach(ders => {
-        // HTML Kartını Oluştur
-        const html = `
-            <div class="card">
-                <div class="card-icon">${ders.ikon}</div>
-                <h3>${ders.baslik}</h3>
-                <p>${ders.aciklama}</p>
-                <a href="${ders.link}" target="_blank" class="btn">Sunumu Aç</a>
-            </div>
-        `;
-        // Sayfaya Ekle
-        kartAlani.innerHTML += html;
-    });
-
-</script>
-
-</body>
-</html>
-
+    dersProgrami.forEach(bolum => {
+        // 1. Kategori Başlığını Ekle
+        const baslikHTML = `<div class="kategori-baslik">${bolum.kategoriAdi}</div>`;
+        
+        // 2
