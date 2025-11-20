@@ -6,7 +6,7 @@
     <title>6. Sınıf Türkçe Sunumları</title>
     <style>
         :root {
-            --primary-color: #2980b9; /* 6. Sınıf için Mavi tonu */
+            --primary-color: #2980b9;
             --accent-color: #34495e;
             --bg-color: #f0f2f5;
             --text-color: #333;
@@ -20,7 +20,6 @@
             color: var(--text-color);
         }
 
-        /* Üst Başlık Alanı */
         header {
             background-color: var(--primary-color);
             color: white;
@@ -29,10 +28,9 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
-        h1 { margin: 0; font-size: 2.8rem; letter-spacing: 1px; }
-        p { font-size: 1.3rem; opacity: 0.9; margin-top: 10px; }
+        h1 { margin: 0; font-size: 2.5rem; }
+        p { font-size: 1.2rem; margin-top: 10px; }
 
-        /* Sunum Kartları Izgarası */
         .container {
             max-width: 1200px;
             margin: 40px auto;
@@ -47,27 +45,20 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease;
             display: flex;
             flex-direction: column;
             border-top: 5px solid var(--primary-color);
         }
 
-        .card:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-        }
+        .card:hover { transform: translateY(-5px); }
 
-        /* Kart İçeriği */
         .card-header {
             background-color: #ecf0f1;
             color: var(--accent-color);
             padding: 15px;
             font-weight: bold;
-            font-size: 1rem;
             text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .card-body {
@@ -80,86 +71,70 @@
         }
 
         .card-title {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: bold;
             margin-bottom: 15px;
             color: var(--primary-color);
         }
 
-        .card-desc {
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 25px;
-            line-height: 1.5;
-        }
+        .card-desc { font-size: 1rem; color: #555; margin-bottom: 25px; }
 
-        /* Buton Tasarımı */
+        /* BUTON DÜZELTMESİ: Artık <button> kullanıyoruz */
         .open-btn {
             display: block;
             width: 100%;
             background-color: var(--primary-color);
             color: white;
-            text-decoration: none;
-            padding: 18px 0;
-            border-radius: 50px; /* Daha yuvarlak modern buton */
-            font-size: 1.3rem;
+            padding: 15px 0;
+            border: none; /* Çerçeve yok */
+            border-radius: 50px;
+            font-size: 1.2rem;
             font-weight: bold;
+            cursor: pointer; /* Tıklanabilir el işareti */
             transition: background 0.3s;
         }
 
-        .open-btn:hover {
-            background-color: var(--accent-color);
-        }
+        .open-btn:hover { background-color: var(--accent-color); }
 
-        /* Modal (Tam Ekran Sunum) */
+        /* Modal Penceresi */
         #presentationModal {
-            display: none;
+            display: none; /* Başlangıçta gizli */
             position: fixed;
-            z-index: 1000;
+            z-index: 9999; /* En üstte olması garanti */
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.92);
-            backdrop-filter: blur(5px);
+            background-color: rgba(0,0,0,0.9);
         }
 
         .modal-content {
             position: relative;
-            margin: 1% auto; /* Kenar boşluklarını azalttım, daha büyük ekran */
-            width: 95%;
-            height: 92%;
+            margin: 2vh auto; /* Dikey ortalama */
+            width: 90%;
+            height: 90%;
             background: white;
             border-radius: 8px;
-            overflow: hidden;
         }
 
         .close {
             position: absolute;
-            right: 25px;
-            top: 15px;
+            right: -40px; /* Çarpı işaretini kutunun dışına aldım */
+            top: 0;
             color: white;
             font-size: 50px;
             font-weight: bold;
             cursor: pointer;
-            z-index: 1001;
-            transition: color 0.2s;
         }
         
-        .close:hover { color: var(--accent-color); }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+        iframe { width: 100%; height: 100%; border: none; }
     </style>
 </head>
 <body>
 
 <header>
     <h1>6. Sınıf Türkçe Sunumları</h1>
-    <p>Ders Materyalleri ve Etkinlikler</p>
+    <p>Ders Materyalleri</p>
 </header>
 
 <div class="container">
@@ -168,8 +143,9 @@
         <div class="card-header">Okuma / Anlama</div>
         <div class="card-body">
             <div class="card-title">Söz Sanatları</div>
-            <div class="card-desc">Benzetme, Kişileştirme, Konuşturma ve Karşıtlık sanatları.</div>
-            <a href="#" class="open-btn" onclick="openModal('https://www.canva.com/design/BURAYA_LINK_GELECEK/view?embed')">SUNUMU AÇ</a>
+            <div class="card-desc">Benzetme, Kişileştirme ve Konuşturma.</div>
+            
+            <button class="open-btn" onclick="openModal('https://www.canva.com/design/DAFxxxx/view?embed')">SUNUMU AÇ</button>
         </div>
     </div>
 
@@ -177,8 +153,9 @@
         <div class="card-header">Metin Türleri</div>
         <div class="card-body">
             <div class="card-title">Hikaye ve Masal</div>
-            <div class="card-desc">Hikaye unsurları ve masalın özellikleri karşılaştırmalı anlatım.</div>
-            <a href="#" class="open-btn" onclick="openModal('https://www.canva.com/design/BURAYA_LINK_GELECEK/view?embed')">SUNUMU AÇ</a>
+            <div class="card-desc">Hikaye unsurları ve masal özellikleri.</div>
+            
+            <button class="open-btn" onclick="openModal('https://www.canva.com/design/DAFxxxx/view?embed')">SUNUMU AÇ</button>
         </div>
     </div>
 
@@ -186,42 +163,45 @@
         <div class="card-header">Dil Bilgisi</div>
         <div class="card-body">
             <div class="card-title">İsim Tamlamaları</div>
-            <div class="card-desc">Belirtili, belirtisiz ve zincirleme isim tamlamaları.</div>
-            <a href="#" class="open-btn" onclick="openModal('https://www.canva.com/design/BURAYA_LINK_GELECEK/view?embed')">SUNUMU AÇ</a>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-header">Yazım Kuralları</div>
-        <div class="card-body">
-            <div class="card-title">Büyük Harflerin Kullanımı</div>
-            <div class="card-desc">Özel isimler, kurum adları ve hitaplarda büyük harf kullanımı.</div>
-            <a href="#" class="open-btn" onclick="openModal('https://www.canva.com/design/BURAYA_LINK_GELECEK/view?embed')">SUNUMU AÇ</a>
+            <div class="card-desc">Belirtili, belirtisiz ve zincirleme tamlamalar.</div>
+            
+            <button class="open-btn" onclick="openModal('https://www.canva.com/design/DAG4-mdLaZs/FQpjZu62atB6z4By8oMIbQ/edit?utm_content=DAG4-mdLaZs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton')">SUNUMU AÇ</button>
         </div>
     </div>
 
 </div>
 
 <div id="presentationModal">
-    <span class="close" onclick="closeModal()">&times;</span>
     <div class="modal-content">
-        <iframe id="modalFrame" src="" allowfullscreen></iframe>
+        <span class="close" onclick="closeModal()">&times;</span>
+        <iframe id="modalFrame" src=""></iframe>
     </div>
 </div>
 
 <script>
-    // Modal Açma Fonksiyonu
     function openModal(url) {
-        if(url.includes('https://www.canva.com/design/DAG4-mdLaZs/FQpjZu62atB6z4By8oMIbQ/edit?utm_content=DAG4-mdLaZs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton')) { 
-            alert("Bu sunum henüz eklenmemiş. Lütfen kodu düzenleyip Canva linkini yapıştırın."); 
-            return; 
+        // Eğer link değiştirilmediyse uyarı ver
+        if(url.includes('DAFxxxx')) {
+            alert("Lütfen koddaki Canva linkini kendi sunum linkinizle değiştirin!");
+            return;
         }
-        
         document.getElementById('presentationModal').style.display = "block";
         document.getElementById('modalFrame').src = url;
     }
 
-    // Modal Kapatma Fonksiyonu
     function closeModal() {
         document.getElementById('presentationModal').style.display = "none";
-        document.getElementById('
+        document.getElementById('modalFrame').src = "";
+    }
+    
+    // Sayfa dışına tıklayınca da kapansın
+    window.onclick = function(event) {
+        var modal = document.getElementById('presentationModal');
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+</script>
+
+</body>
+</html>
