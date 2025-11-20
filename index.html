@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Türkçe Ders Materyalleri</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+        }
+
+        /* Üst Başlık Alanı */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 { margin: 0; font-size: 2.5rem; }
+        p { font-size: 1.2rem; opacity: 0.8; }
+
+        /* Filtre Butonları (Akıllı Tahta için Büyük) */
+        .filters {
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .filter-btn {
+            background: white;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Sunum Kartları Izgarası */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .card-header {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .card-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .card-desc {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .open-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 15px 0;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .open-btn:hover {
+            background-color: #34495e;
+        }
+
+        /* Modal (Tam Ekran Sunum) */
+        #presentationModal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            position: relative;
+            margin: 2% auto;
+            width: 90%;
+            height: 90%;
+            background: white;
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Türkçe Dersi Materyalleri</h1>
+    <p>Akıllı Tahta Sunum Platformu</p>
+</header>
+
+<div class="filters">
+    <button class="filter-btn active" onclick="filterSelection('all')">Tümü</button>
+    <button class="filter-btn" onclick="filterSelection('5')">5. Sınıf</button>
+    <button class="filter-btn" onclick="filterSelection('6')">6. Sınıf</button>
+    <button class="filter-btn" onclick="filterSelection('7')">7. Sınıf</button>
+    <button class="filter-btn" onclick="filterSelection('8')">8. Sınıf</button>
+</div>
+
+<div class="container">
+    <div class="card" data-category="5">
+        <div class="card-header">6. Sınıf - Metin Sunumları</div>
+        <div class="card-body">
+            <div class="card-title">Büyük Taarruz</div>
+            <div class="card-desc">Gerçek, mecaz ve terim anlam konularını içeren interaktif sunum.</div>
+            <a href="#" class="open-btn" onclick="openModal('https://www.canva.com/design/DAG4-mdLaZs/FQpjZu62atB6z4By8oMIbQ/edit?utm_content=DAG4-mdLaZs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton')">Sunumu Aç</a>
+        </div>
+    </div>
+
+    <div class="card" data-category="6">
+        <div class="card-header">6. Sınıf - Okuma</div>
+        <div class="card-body">
+            <div class="card-title">Paragraf Yapısı</div>
+            <div class="card-desc">Ana düşünce ve yardımcı düşünce bulma teknikleri.</div>
+            <a href="#" class="open-btn" onclick="openModal('https://example.com/sunum2.pdf')">Sunumu Aç</a>
+        </div>
+    </div>
+
+    <div class="card" data-category="8">
+        <div class="card-header">8. Sınıf - LGS</div>
+        <div class="card-body">
+            <div class="card-title">Fiilimsiler</div>
+            <div class="card-desc">İsim-fiil, sıfat-fiil ve zarf-fiil konu anlatımı ve testler.</div>
+            <a href="#" class="open-btn" onclick="openModal('https://example.com/sunum3')">Sunumu Aç</a>
+        </div>
+    </div>
+</div>
+
+<div id="presentationModal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+        <iframe id="modalFrame" src=""></iframe>
+    </div>
+</div>
+
+<script>
+    // Filtreleme Fonksiyonu
+    function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("card");
+        var btns = document.getElementsByClassName("filter-btn");
+        
+        // Buton aktiflik durumu
+        for (i = 0; i < btns.length; i++) {
+            btns[i].classList.remove("active");
+            if(btns[i].innerText.includes(c) || (c === 'all' && btns[i].innerText === 'Tümü')) {
+                btns[i].classList.add("active");
+            }
+        }
+
+        if (c == "all") c = "";
+        for (i = 0; i
